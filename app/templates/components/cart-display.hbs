@@ -1,3 +1,8 @@
 {{#each cart.items as |item|}}
-  {{item.name}} - {{item.price}}
+<div class="panel">
+    <li>Name: {{item.name}}</li>
+    <img src="{{item.image}}" alt="" onerror='this.src="https://heatherchristenaschmidt.files.wordpress.com/2011/09/facebook_no_profile_pic2-jpg.gif"' />
+    Description: {{item.description}}
+    Price: {{item.price}}
+</div>
 {{/each}}
