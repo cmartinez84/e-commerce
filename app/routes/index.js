@@ -10,14 +10,12 @@ export default Ember.Route.extend({
     actions: {
       createNewProduct(params){
         var newItem = this.store.createRecord('item', params);
-        console.log(params.category);
-        var category = this.store.findRecord('category', params.category).then(function(stuff) {
-            stuff.destroyRecord();
+        this.store.findRecord('category', params.category).then(function(category) {
+          category.get('items').addObject(newItem);
+          newItem.save();
+          category.save();
+          this.transitionTo('index');
         });
-        console.log(category);
-        category.get('items').addObject(newItem);
-        newItem.save();
-        this.transitionTo('index');
       },
       addNewCategory(params){
         var newCategory = this.store.createRecord('category', params);
@@ -25,6 +23,25 @@ export default Ember.Route.extend({
         this.transitionTo('index');
       },
       destroy(item){
+        var thisScope = this;
+        var allItemCategories = [];
+        item.get('categories').forEach(function(category){
+          allItemCategories.push(category.get('id'));
+        });
+        allItemCategories.forEach(function(category_id){
+          this.store.findRecord('category', category_id).then(function(category){
+            category.get('items').forEach(function(category_item){
+            if(category_item.get('id') === item.get('id')){
+              var temp = category.get('items');
+              temp.removeObject(item);
+              // category.set('items').removeObject(category_item);
+            }
+            })
+            // category.get('items').splice(index, 1);
+            category.save();
+          });
+        }, this);
+        console.log(allItemCategories);
         item.destroyRecord();
         this.transitionTo('index');
       }
