@@ -6,5 +6,7 @@ export default Ember.Route.extend({
       items: this.store.findAll('item'),
       categories: this.store.findAll('category')
     });
+  },
+  actions: {
   }
 });
