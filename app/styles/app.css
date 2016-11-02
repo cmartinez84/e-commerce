@@ -23,3 +23,22 @@ body{
 .panel:hover .destroy{
   display: inline-block;
 }
+.panel{
+  border: 1px dashed black;
+  padding: 10px;
+  padding-left: 20px;
+  padding-bottom: 20px;
+  background: white;
+}
+.underlay{
+  background: yellow;
+  width: 200px !important;
+}
+.underLay:hover {
+  background: url('https://media.giphy.com/media/xTiTnjN449n3p63LVe/giphy.gif');
+  width: 200px !important;
+
+}
+.panel:hover{
+  background: white;
+}

@@ -1,17 +1,24 @@
 {{#each items as |item|}}
+<div class="underLay">
   <div class="panel">
-      <li>Name: {{item.name}}</li>
+      <h1>Name: {{item.name}}</h1>
+      <div class="categoryTags">
+        {{#each item.categories as |category|}}
+          <span>{{category.name}}</span>
+        {{/each}}
+      </div>
       <img src="{{item.image}}" alt="" onerror='this.src="https://heatherchristenaschmidt.files.wordpress.com/2011/09/facebook_no_profile_pic2-jpg.gif"' />
       Description: {{item.description}}
       Price: {{item.price}}
       <button {{action "addToCart" item}}>Add to Cart</button>
       <button class="btn btn-danger destroy"{{action "destroyItem" item}}>X</button>
   </div>
+
   <select id="category_id2">
     {{#each categories as |category|}}
     <option value="{{category.id}}">{{category.name}}</option>
     {{/each}}
   </select>
   <button {{action "addCategoryToItem" item}}>Add Category</button>
-
+</div>
 {{/each}}
