@@ -5,7 +5,9 @@ export default Ember.Component.extend({
     actions: {
       addToCart(item){
         this.get('cart').add(item);
-  
+      },
+      destroyItem(item){
+        this.sendAction('destroy1', item);
       }
     }
 });

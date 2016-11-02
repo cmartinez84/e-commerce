@@ -17,6 +17,10 @@ export default Ember.Route.extend({
         var newCategory = this.store.createRecord('category', params);
         newCategory.save();
         this.transitionTo('index');
+      },
+      destroy(item){
+        item.destroyRecord();
+        this.transitionTo('index');
       }
   }
 });
