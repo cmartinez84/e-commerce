@@ -7,5 +7,11 @@
       <button {{action "addToCart" item}}>Add to Cart</button>
       <button class="btn btn-danger destroy"{{action "destroyItem" item}}>X</button>
   </div>
+  <select id="category_id2">
+    {{#each categories as |category|}}
+    <option value="{{category.id}}">{{category.name}}</option>
+    {{/each}}
+  </select>
+  <button {{action "addCategoryToItem" item}}>Add Category</button>
 
 {{/each}}

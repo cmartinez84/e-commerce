@@ -44,6 +44,16 @@ export default Ember.Route.extend({
         console.log(allItemCategories);
         item.destroyRecord();
         this.transitionTo('index');
+      },
+      addCategoryToItem(item, category_id){
+        this.store.findRecord('category',category_id).then(function(category){
+         item.get('categories').addObject(category);
+          category.get('items').addObject(item)
+
+          item.save();
+          category.save();
+        });
+
       }
   }
 });

@@ -10,8 +10,9 @@ export default Ember.Component.extend({
         this.sendAction('destroy1', item);
       },
       addCategoryToItem(item){
-        var category = this.get('category');
-        item.categories.push(category);
+        var category_id = $("#category_id2").val();
+        console.log(category_id);
+        this.sendAction('addCategoryToItem', item, category_id);
       }
     }
 });
