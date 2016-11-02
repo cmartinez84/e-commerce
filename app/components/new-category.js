@@ -5,7 +5,8 @@ export default Ember.Component.extend({
     addNewCategory(){
       var params = {
         name: this.get('newCategoryName'),
-        description: this.get('newCategoryDescription')
+        description: this.get('newCategoryDescription'),
+        items: []
       };
       this.sendAction('addNewCategory', params);
     }

@@ -9,8 +9,14 @@ export default Ember.Route.extend({
   },
     actions: {
       createNewProduct(params){
-        var newProduct = this.store.createRecord('item', params);
-        newProduct.save();
+        var newItem = this.store.createRecord('item', params);
+        console.log(params.category);
+        var category = this.store.findRecord('category', params.category).then(function(stuff) {
+            stuff.destroyRecord();
+        });
+        console.log(category);
+        category.get('items').addObject(newItem);
+        newItem.save();
         this.transitionTo('index');
       },
       addNewCategory(params){

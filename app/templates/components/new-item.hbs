@@ -8,6 +8,12 @@
 {{input value=image id="image"}}
 <label for="">Description:</label>
 {{input value=description id="description"}}
-
-<button {{action "createNewProduct"}}>Submit</button>
+  <h2>Add a category</h2>
+  <label for="">Category Name</label>
+  <select id="category_id">
+    {{#each categories as |category|}}
+    <option value="{{category.id}}">{{category.name}}</option>
+    {{/each}}
+  </select>
+<button {{action "createNewProduct" }}>Submit</button>
 </div>

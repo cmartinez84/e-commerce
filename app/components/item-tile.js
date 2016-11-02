@@ -8,6 +8,10 @@ export default Ember.Component.extend({
       },
       destroyItem(item){
         this.sendAction('destroy1', item);
+      },
+      addCategoryToItem(item){
+        var category = this.get('category');
+        item.categories.push(category);
       }
     }
 });

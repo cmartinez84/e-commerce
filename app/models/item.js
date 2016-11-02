@@ -5,6 +5,6 @@ export default DS.Model.extend({
   price: DS.attr("number"),
   image: DS.attr("string"),
   description: DS.attr("string"),
-  // category: DS.belongsTo("category", {async: true}),
+  categories: DS.hasMany("category", {async: true}),
   // feedback: DS.belongsTo("category", {async: true})
 });
