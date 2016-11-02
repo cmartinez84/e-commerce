@@ -1,4 +1,4 @@
-{{#if refresh}}
+
   {{#each cart.items as |item|}}
   <div class="panel">
       <li>Name: {{item.name}}</li>
@@ -8,4 +8,4 @@
       <button class="btn btn-danger"{{action "removeItem" item}}>X</button>
   </div>
   {{/each}}
-{{/if}}
+<h1>{{cart.total}}</h1>
