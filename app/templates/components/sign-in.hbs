@@ -1,8 +1,9 @@
 <div class="well">
-  <h1>Sign In</h1>
+  <h1>Sign In/ Sign Out</h1>
   <label for="">User Name:</label>
 {{input value=signInUserName id="signInUserName"}}
 <label for="">Password</label>
 {{input value=signInPassword id="signInPassword"}}
 <button {{action "signIn"}}>Sign In</button>
+<button {{action "signOut"}} class="btn btn-danger">Sign Out (or just fresh the page)</button>
 </div>

@@ -2,19 +2,17 @@ import Ember from 'ember';
 
 export default Ember.Service.extend({
   authenticated: false,
-  userName: null,
-  email: null,
-
-  actions:{
+  userName: "chris",
+  email: "email",
     signIn(params){
+      console.log(params);
       this.set('authenticated', true);
-      this.set('authenticated', params.email);
-      this.set('authenticated', params.name);
+      this.set('email', params.email);
+      this.set('userName', params.userName);
     },
     signOut(){
       this.set('authenticated', false);
-      this.set('authenticated', null);
-      this.set('authenticated', null);
+      this.set('email', null);
+      this.set('userName', null);
     }
-  }
 });

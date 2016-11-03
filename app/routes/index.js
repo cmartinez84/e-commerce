@@ -1,14 +1,16 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
+  user: Ember.inject.service(),
+
   model(){
     return Ember.RSVP.hash({
       items: this.store.findAll('item'),
-      categories: this.store.findAll('category')
+      categories: this.store.findAll('category'),
+
     });
   },
     actions: {
-
       createNewProduct(params){
         var _this = this;
         var newItem = this.store.createRecord('item', params);
@@ -25,8 +27,6 @@ export default Ember.Route.extend({
         this.transitionTo('index');
       },
       removeItem(item){
-        // console.log("success");
-        // alert("destroy");
 
         var thisScope = this;
         var allItemCategories = [];
@@ -39,10 +39,8 @@ export default Ember.Route.extend({
             if(category_item.get('id') === item.get('id')){
               var temp = category.get('items');
               temp.removeObject(item);
-              // category.set('items').removeObject(category_item);
             }
             })
-            // category.get('items').splice(index, 1);
             category.save();
           });
         }, this);
@@ -64,7 +62,7 @@ export default Ember.Route.extend({
         newUser.save();
       },
       signIn(params){
-        console.log(params);
+        var _this = this;
         this.store.query('user', {
           orderBy:'userName',
           equalTo: params.userName
@@ -72,6 +70,11 @@ export default Ember.Route.extend({
             var password = record.get('firstObject').get('password');
             if(password === params.password){
               alert("you are logged in");
+              var params2 = {
+                userName: record.get('firstObject').get('userName'),
+                email: record.get('firstObject').get('email')
+              };
+              _this.get('user').signIn(params2);
             }
             else{
               alert("you are not logged in");
