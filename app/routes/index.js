@@ -57,6 +57,15 @@ export default Ember.Route.extend({
       createNewUser(params){
         var newUser = this.store.createRecord('user', params);
         newUser.save();
+      },
+      signIn(params){
+        console.log(params);
+        this.store.query('user', {
+          orderBy:'userName',
+          equalTo: params.userName
+          }).then(function(record){
+            console.log(record.get('firstObject').get('name'));
+        });
       }
   }
 });
