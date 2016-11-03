@@ -4,7 +4,8 @@
       <li>Name: {{ item.name}}</li>
       <img src="{{item.image}}" alt="" onerror='this.src="https://heatherchristenaschmidt.files.wordpress.com/2011/09/facebook_no_profile_pic2-jpg.gif"' />
       Description: {{item.description}}
-      Price: {{dollar-sign item.price}}
+      Each: {{dollar-sign item.price}}
+      Subtotal: {{subtotal item}}
       <button class="btn btn-danger"{{action "removeItem" item}}>X</button>
   </div>
   {{/each}}
