@@ -53,7 +53,10 @@ export default Ember.Route.extend({
           item.save();
           category.save();
         });
-
+      },
+      createNewUser(params){
+        var newUser = this.store.createRecord('user', params);
+        newUser.save();
       }
   }
 });
