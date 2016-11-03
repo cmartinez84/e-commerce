@@ -1,11 +1,11 @@
 {{user.email}}
   {{#each cart.items as |item|}}
   <div class="panel">
-      <li>Name: {{item.name}}</li>
+      <li>Name: {{ item.name}}</li>
       <img src="{{item.image}}" alt="" onerror='this.src="https://heatherchristenaschmidt.files.wordpress.com/2011/09/facebook_no_profile_pic2-jpg.gif"' />
       Description: {{item.description}}
-      Price: {{item.price}}
+      Price: {{dollar-sign item.price}}
       <button class="btn btn-danger"{{action "removeItem" item}}>X</button>
   </div>
   {{/each}}
-<h1>{{cart.total}}</h1>
+<h1>{{dollar-sign cart.total}}</h1>

@@ -12,6 +12,8 @@
       <img  class="img-responsive" src="{{item.image}}" alt="" onerror='this.src="https://heatherchristenaschmidt.files.wordpress.com/2011/09/facebook_no_profile_pic2-jpg.gif"' />
       Description: {{item.description}}
       Price:{{dollar-sign item.price}}
+      Quantity on Hand: {{item.quantityInStock}}
+      <input value="3" id="purchasePurchaseQuantity{{item.id}}">
       <button {{action "addToCart" item}}>Add to Cart</button>
       <button class="btn btn-danger destroy"{{action "destroyItem" item}}>X</button>
   </div>

@@ -4,6 +4,9 @@ export default Ember.Component.extend({
     cart: Ember.inject.service(),
     actions: {
       addToCart(item){
+        var item_id = item.get("id");
+        var quantity  = $("#purchasePurchaseQuantity"+item_id).val();
+        console.log($("#purchasePurchaseQuantity"+item_id).val());
         this.get('cart').add(item);
       },
       destroyItem(item){

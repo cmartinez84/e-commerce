@@ -8,7 +8,9 @@ export default Ember.Component.extend({
         price: this.get('price'),
         image: this.get('image'),
         description: this.get('description'),
-        category: $("#category_id").val()
+        quantityInStock: this.get('quantityInStock'),
+        category: $("#category_id").val(),
+        purchaseQuantity: 0,
       };
       console.log(params);
       this.sendAction("createNewProduct", params);
