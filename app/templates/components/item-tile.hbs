@@ -17,7 +17,7 @@
       <button class="btn btn-danger destroy"{{action "destroyItem" item}}>X</button>
   </div>
 
-  <select id="category_id2">
+  <select id="category_id2{{item.id}}">
     {{#each categories as |category|}}
     <option value="{{category.id}}">{{category.name}}</option>
     {{/each}}

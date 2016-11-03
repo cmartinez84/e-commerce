@@ -8,13 +8,15 @@ export default Ember.Route.extend({
     });
   },
     actions: {
+
       createNewProduct(params){
+        var _this = this;
         var newItem = this.store.createRecord('item', params);
         this.store.findRecord('category', params.category).then(function(category) {
           category.get('items').addObject(newItem);
           newItem.save();
           category.save();
-          this.transitionTo('index');
+          _this.transitionTo('index');
         });
       },
       addNewCategory(params){
@@ -22,7 +24,10 @@ export default Ember.Route.extend({
         newCategory.save();
         this.transitionTo('index');
       },
-      destroy(item){
+      removeItem(item){
+        // console.log("success");
+        // alert("destroy");
+
         var thisScope = this;
         var allItemCategories = [];
         item.get('categories').forEach(function(category){
@@ -64,7 +69,13 @@ export default Ember.Route.extend({
           orderBy:'userName',
           equalTo: params.userName
           }).then(function(record){
-            console.log(record.get('firstObject').get('name'));
+            var password = record.get('firstObject').get('password');
+            if(password === params.password){
+              alert("you are logged in");
+            }
+            else{
+              alert("you are not logged in");
+            }
         });
       }
   }

@@ -7,10 +7,11 @@ export default Ember.Component.extend({
         this.get('cart').add(item);
       },
       destroyItem(item){
-        this.sendAction('destroy1', item);
+        console.log("success");
+        this.sendAction('removeItem', item);
       },
       addCategoryToItem(item){
-        var category_id = $("#category_id2").val();
+        var category_id = $("#category_id2"+item.get('id')).val();
         console.log(category_id);
         this.sendAction('addCategoryToItem', item, category_id);
       }
