@@ -1,3 +1,5 @@
 {{new-item createNewProduct="createNewProduct" categories=model.categories}}
-{{item-tile items=model.items destroy1="destroy" categories=model.categories addCategoryToItem="addCategoryToItem"}}
+<div class="item-area">
+    {{item-tile items=model.items destroy1="destroy" categories=model.categories addCategoryToItem="addCategoryToItem"}}
+</div>
 {{new-category addNewCategory="addNewCategory"}}

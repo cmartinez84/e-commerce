@@ -1,13 +1,16 @@
+<div class="itemArea">
+
+
 {{#each items as |item|}}
 <div class="underLay">
   <div class="panel">
       <h1>Name: {{item.name}}</h1>
       <div class="categoryTags">
         {{#each item.categories as |category|}}
-          <span>{{category.name}}</span>
+          <span class="catLink">{{#link-to 'category' category.id}}{{category.name}}{{/link-to}}</span>
         {{/each}}
       </div>
-      <img src="{{item.image}}" alt="" onerror='this.src="https://heatherchristenaschmidt.files.wordpress.com/2011/09/facebook_no_profile_pic2-jpg.gif"' />
+      <img  class="img-responsive" src="{{item.image}}" alt="" onerror='this.src="https://heatherchristenaschmidt.files.wordpress.com/2011/09/facebook_no_profile_pic2-jpg.gif"' />
       Description: {{item.description}}
       Price: {{item.price}}
       <button {{action "addToCart" item}}>Add to Cart</button>
@@ -22,3 +25,4 @@
   <button {{action "addCategoryToItem" item}}>Add Category</button>
 </div>
 {{/each}}
+</div>
