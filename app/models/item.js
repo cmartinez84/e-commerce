@@ -8,5 +8,6 @@ export default DS.Model.extend({
   quantityInStock: DS.attr(),
   purchaseQuantity: DS.attr(),
   categories: DS.hasMany("category", {async: true}),
+  rating: DS.attr(),
   // feedback: DS.belongsTo("category", {async: true})
 });

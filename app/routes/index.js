@@ -80,6 +80,11 @@ export default Ember.Route.extend({
               alert("you are not logged in");
             }
         });
-      }
+      },
+      addRating(toRate, rating){
+        // console.log("third");
+        toRate.get("rating").push(rating);
+        toRate.save();
+    },
   }
 });

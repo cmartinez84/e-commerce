@@ -4,6 +4,7 @@
 <div class="underLay">
   <div class="panel">
       <h1>Name: {{item.name}}</h1>
+      {{averageRating item.rating}}
       <div class="categoryTags">
         {{#each item.categories as |category|}}
           <span class="catLink">{{#link-to 'category' category.id}}{{category.name}}{{/link-to}}</span>
@@ -16,6 +17,7 @@
       <input value="3" id="purchasePurchaseQuantity{{item.id}}">
       <button {{action "addToCart" item}}>Add to Cart</button>
       <button class="btn btn-danger destroy"{{action "destroyItem" item}}>X</button>
+      {{add-rating addRating="addRating" toRate=item}}
   </div>
 
   <select id="category_id2{{item.id}}">

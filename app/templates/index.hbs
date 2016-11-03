@@ -1,8 +1,7 @@
 {{new-item createNewProduct="createNewProduct" categories=model.categories}}
 <div class="item-area">
-    {{item-tile items=model.items removeItem='removeItem' categories=model.categories addCategoryToItem="addCategoryToItem"}}
+    {{item-tile items=model.items removeItem='removeItem' categories=model.categories addCategoryToItem="addCategoryToItem" addRating="addRating"}}
 </div>
 {{new-category addNewCategory="addNewCategory"}}
 {{new-user createNewUser="createNewUser"}}
 {{sign-in signIn="signIn"}}
-{{"1+4"}}

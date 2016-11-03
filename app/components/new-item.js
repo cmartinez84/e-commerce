@@ -11,6 +11,7 @@ export default Ember.Component.extend({
         quantityInStock: this.get('quantityInStock'),
         category: $("#category_id").val(),
         purchaseQuantity: 0,
+        rating: [1]
       };
       console.log(params);
       this.sendAction("createNewProduct", params);

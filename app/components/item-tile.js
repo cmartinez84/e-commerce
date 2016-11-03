@@ -18,6 +18,10 @@ export default Ember.Component.extend({
         var category_id = $("#category_id2"+item.get('id')).val();
         console.log(category_id);
         this.sendAction('addCategoryToItem', item, category_id);
+      },
+      addRating(toRate, rating){
+        // console.log(toRate.get('name'));
+        this.sendAction("addRating", toRate, rating);
       }
     }
 });
