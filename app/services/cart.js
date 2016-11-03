@@ -6,14 +6,15 @@ export default Ember.Service.extend({
 
   add(item) {
     this.get('items').pushObject(item);
-    // console.log(item.get('name'));
-    var newTotal = this.get('total') + parseInt(item.get('price'));
+    var subtotal = parseInt(item.get('price')) * parseInt(item.get('purchaseQuantity'));
+    var newTotal = this.get('total') + subtotal;
     this.set("total", newTotal);
   },
   remove(item) {
     var index = this.get('items').indexOf(item);
     this.get('items').splice(index, 1);
-    var newTotal = this.get('total') - parseInt(item.get('price'));
+    var subtotal = parseInt(item.get('price')) * parseInt(item.get('purchaseQuantity'));
+    var newTotal = this.get('total') - subtotal;
     this.set("total", newTotal);
   }
 
