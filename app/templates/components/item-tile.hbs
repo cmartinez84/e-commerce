@@ -1,6 +1,5 @@
-<div class="itemArea">
-
-
+<div class="itemArea well">
+<h1>All Products</h1>
 {{#each items as |item|}}
 <div class="underLay">
   <div class="panel">
@@ -12,7 +11,7 @@
       </div>
       <img  class="img-responsive" src="{{item.image}}" alt="" onerror='this.src="https://heatherchristenaschmidt.files.wordpress.com/2011/09/facebook_no_profile_pic2-jpg.gif"' />
       Description: {{item.description}}
-      Price: {{item.price}}
+      Price:{{dollar-sign item.price}}
       <button {{action "addToCart" item}}>Add to Cart</button>
       <button class="btn btn-danger destroy"{{action "destroyItem" item}}>X</button>
   </div>
